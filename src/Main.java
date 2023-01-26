@@ -19,10 +19,5 @@ public class Main {
         OneTimeTask oneTimeTask1 = new OneTimeTask("1",WORK,LocalDateTime.of(2023,2,20,22,22),"3");
         MonthlyTask monthlyTask1 = new MonthlyTask("1",PERSONAL,LocalDateTime.of(2023,11,11,11,11),"2");
 
-
-
-
-
-
         }
 }

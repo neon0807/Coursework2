@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Task  {
+public abstract class Task  {
 
     private static int idGenerator;
     private final Type type;
@@ -53,9 +53,8 @@ public class Task  {
         }else this.description = description;
     }
 
-    public boolean appearsln(LocalDate localDate) {
-        return false;
-    }
+    public abstract boolean appearsln(LocalDate localDate);
+
 
     public Task(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         idGenerator++;
@@ -95,6 +94,8 @@ public class Task  {
     public int hashCode() {
         return Objects.hash(type, title, id, dateTime, description);
     }
+
+
 }
 
 

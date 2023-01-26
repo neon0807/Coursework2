@@ -11,6 +11,7 @@ public class OneTimeTask extends Task {
     public OneTimeTask(String title, Object o, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         super(title,(Type) o, dateTime, description);
     }
+    @Override
     public boolean appearsln(LocalDate localDate) {
         return localDate.equals(getDateTime());
     }

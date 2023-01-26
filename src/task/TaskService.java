@@ -1,6 +1,6 @@
 package task;
 
-import task.Task;
+import exception.TaskNotFoundException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,13 +21,20 @@ public class TaskService  {
         this.removedTasks = new ArrayList<>();
     }
 
-    public void AddTask(Task task){
+    public void addTask(Task task){
         taskMap.put(task.getId(), task);
     }
 
-    public void RemoveTask(int id){
-        removedTasks.add(taskMap.get(id));
-        taskMap.remove(id);
+    public Task removeTask(int id) throws TaskNotFoundException {
+        if (taskMap.get(id) == null){
+            System.out.println("Такой задачи нет!");
+            throw new TaskNotFoundException();
+        } else {
+            Task temp = taskMap.get(id);
+            removedTasks.add(taskMap.get(id));
+            taskMap.remove(id);
+            return temp;
+        }
     }
 
 

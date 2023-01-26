@@ -13,7 +13,7 @@ public abstract class Task  {
     private final Type type;
     private String title;
 
-    private int id=1;
+    private int id;
     private final LocalDateTime dateTime;
     private String description;
 
@@ -60,7 +60,7 @@ public abstract class Task  {
         idGenerator++;
         this.title = title;
         this.type = type;
-        this.id = idGenerator++;
+        this.id = idGenerator;
 
         if (dateTime.isBefore(LocalDate.now().atStartOfDay())){
             System.out.println("Введена не корктная дата");

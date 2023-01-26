@@ -7,13 +7,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Task  {
+public abstract class Task  {
 
     private static int idGenerator;
     private final Type type;
     private String title;
 
-    private int id=1;
+    private int id;
     private final LocalDateTime dateTime;
     private String description;
 
@@ -53,15 +53,14 @@ public class Task  {
         }else this.description = description;
     }
 
-    public boolean appearsln(LocalDate localDate) {
-        return false;
-    }
+    public abstract boolean appearsln(LocalDate localDate);
+
 
     public Task(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         idGenerator++;
         this.title = title;
         this.type = type;
-        this.id = idGenerator++;
+        this.id = idGenerator;
 
         if (dateTime.isBefore(LocalDate.now().atStartOfDay())){
             System.out.println("Введена не корктная дата");
@@ -95,6 +94,8 @@ public class Task  {
     public int hashCode() {
         return Objects.hash(type, title, id, dateTime, description);
     }
+
+
 }
 
 
